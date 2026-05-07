@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dylan Wilson's project index for AI research, engineering, and writing."
+    />
+    <title>Dylan Wilson</title>
+    <style>
+      :root {
+        --bg: #f7f5ef;
+        --text: #202124;
+        --muted: #68645d;
+        --line: #ded8cc;
+        --card: #fffdf8;
+        --accent: #315c78;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family:
+          ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+      }
+
+      a:hover {
+        color: #16384d;
+      }
+
+      .page {
+        width: min(860px, calc(100% - 36px));
+        margin: 0 auto;
+        padding: 56px 0;
+      }
+
+      header {
+        padding-bottom: 34px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.6rem, 8vw, 5rem);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.95;
+      }
+
+      .intro {
+        max-width: 690px;
+        margin: 0 0 22px;
+        color: var(--muted);
+        font-size: 1.08rem;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      section {
+        padding: 38px 0 0;
+      }
+
+      h2 {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 0.84rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .project-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .project {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 22px;
+        padding: 20px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--card);
+      }
+
+      .project h3 {
+        margin: 0 0 6px;
+        font-size: 1.08rem;
+        line-height: 1.25;
+      }
+
+      .project p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .project-links {
+        display: flex;
+        min-width: max-content;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: flex-end;
+        gap: 8px 12px;
+        font-size: 0.94rem;
+      }
+
+      .note {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      footer {
+        margin-top: 44px;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.94rem;
+      }
+
+      @media (max-width: 680px) {
+        .page {
+          padding: 36px 0;
+        }
+
+        .project {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .project-links {
+          justify-content: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <h1>Dylan Wilson</h1>
+        <p class="intro">
+          I am a Dartmouth student studying mathematics and psychology, currently working in
+          Jixian's lab at WashU. I focus on AI research, reasoning systems, self-improving agents,
+          and tools that make model behavior easier to evaluate and improve.
+        </p>
+        <nav class="links" aria-label="Profile links">
+          <a href="mailto:dylan.p.wilson.27@dartmouth.edu">Email</a>
+          <a href="https://github.com/dylan518">GitHub</a>
+          <a href="https://www.linkedin.com/in/dylan-wilson-1085b2201/">LinkedIn</a>
+          <a href="dylan_wilson_resume%202.09.35%E2%80%AFPM-6.pdf">Resume</a>
+        </nav>
+      </header>
+
+      <section aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <div class="project-list">
+          <article class="project">
+            <div>
+              <h3>Godel Agents for Idea Generation</h3>
+              <p>
+                Self-improving agent loops for scientific hypothesis generation, with evaluations
+                for idea quality and iterative improvement.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dylan518/godel_idea/tree/main/ideas">GitHub</a>
+              <a href="https://openreview.net/forum?id=qJhZ7oBZHA#discussion">Workshop paper</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Verifiable Self-Learning via Dual-Play RL</h3>
+              <p>
+                A challenger-solver reinforcement learning setup where verifiable questions become
+                the training signal.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dylan518/self-play">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Evolutionary Learning & Signal Stability</h3>
+              <p>
+                Evolutionary training workflows exploring pairing, LoRA optimization, and how signal
+                reliability affects model learning.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dylan518/evo_pairing">Pairing repo</a>
+              <a href="https://github.com/dylan518/EVOLVE">EVOLVE repo</a>
+              <a href="https://drive.google.com/file/d/1D5yvnQ1ENow4aLQOW9kC6Z_YSvC-chW7/view?usp=sharing">Paper</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Tree-Search Reasoning System</h3>
+              <p>
+                Confidence-guided search over candidate LLM responses, improving generation quality
+                compared with single-pass answers.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://drive.google.com/file/d/1-uBF3YGMjZOsFo_3udD2tLjrQHfbMiet/view?usp=sharing">Paper</a>
+              <a href="https://arxiv.org/abs/2410.19117">arXiv</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Deep-Research Data Generation</h3>
+              <p>
+                Asynchronous vLLM data generation and rubric-based Elo scoring for training
+                deep-research models.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://docs.google.com/document/d/15kPju5UkXhqpoaZhVemNCQux_rSJD9FbAFrg17wtqqg/edit?usp=sharing">Write-up</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Lang2Logic</h3>
+              <p>
+                Python package for translating natural language into structured Python objects for
+                LLM logic and self-editing workflows.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://pypi.org/project/Lang2Logic/">PyPI</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Recursive Improvement Agent</h3>
+              <p>
+                Early self-improving agent loop experimenting with recursive code and behavior
+                improvement.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/dylan518/recursive_improvement_agent">GitHub</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>LLM Jailbreak Study</h3>
+              <p>
+                Responsible-disclosure study of a zero-shot jailbreak strategy across frontier
+                language models.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://drive.google.com/file/d/1jxD2PIoaWQlbbMglVpY85oA-vJzNGirp/view?usp=sharing">Paper</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Scaling TTC</h3>
+              <p>
+                Notes on using Chain-of-Thought prompting, reinforcement learning, self-play, and
+                synthetic data to improve reasoning.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://drive.google.com/file/d/1D5yvnQ1ENow4aLQOW9kC6Z_YSvC-chW7/view?usp=sharing">Paper</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Self-stop Layer</h3>
+              <p>
+                Neural network architecture proposal for reusing neurons across multiple computation
+                steps.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="https://docs.google.com/document/d/1IUD-r6UFOkAm9frMBBkQR39uBlklqh2rexKcl68LuTw/edit?usp=sharing">Paper</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Mind Palace Blog</h3>
+              <p>Exploration of mind-palace techniques and possible cognitive use cases.</p>
+            </div>
+            <div class="project-links">
+              <a href="https://docs.google.com/document/d/13YC6Esufw5WQUfdQ4b73qQ04KOVY6q5BTj43w9hlygo/edit?usp=sharing">Note</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <div>
+              <h3>Overfitting Adjust Regression</h3>
+              <p>A regression idea inspired by kernel regression and overfitting adjustment.</p>
+            </div>
+            <div class="project-links">
+              <a href="https://docs.google.com/document/d/1HmgbeSWsQIM_2GPRpHRdso695BzDwewR0-ptrJbt1oI/edit?usp=sharing">Paper</a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
