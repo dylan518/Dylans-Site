@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Character.AI filed for bankruptcy. Here is exactly where to click to export your own conversations, and how to donate them to finetune an open-source alternative."
+    />
+    <meta property="og:title" content="Export your Character.AI data" />
+    <meta
+      property="og:description"
+      content="Character.AI filed for Chapter 11. Here is exactly where to click to get your conversations out."
+    />
+    <title>Export your Character.AI data — Dylan Wilson</title>
+    <style>
+      :root {
+        --bg: #f7f5ef;
+        --text: #202124;
+        --muted: #68645d;
+        --line: #ded8cc;
+        --card: #fffdf8;
+        --accent: #315c78;
+        --warm: #7a5520;
+        --warm-bg: #f6eddc;
+        --warm-line: #e2cfab;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+      a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+      a:hover { color: #16384d; }
+      .page { width: min(860px, calc(100% - 36px)); margin: 0 auto; padding: 56px 0 90px; }
+      .back { font-size: 0.92rem; color: var(--muted); display: inline-block; margin-bottom: 26px; }
+      header { padding-bottom: 30px; border-bottom: 1px solid var(--line); }
+      h1 {
+        margin: 0 0 14px;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(2.1rem, 6vw, 3.3rem);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 1.08;
+      }
+      .intro { margin: 0; color: var(--muted); font-size: 1.07rem; max-width: 62ch; }
+      h2 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.6rem;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        margin: 46px 0 10px;
+      }
+      h3 { font-size: 1.02rem; margin: 0 0 2px; }
+      p { margin: 12px 0; max-width: 68ch; }
+      .callout {
+        background: var(--warm-bg);
+        border: 1px solid var(--warm-line);
+        border-radius: 10px;
+        padding: 16px 18px;
+        margin: 24px 0;
+        color: var(--warm);
+        font-size: 0.97rem;
+      }
+      .callout p { margin: 6px 0; max-width: none; }
+      .callout p:first-child { margin-top: 0; }
+      .callout p:last-child { margin-bottom: 0; }
+      ol.steps { list-style: none; margin: 22px 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+      ol.steps > li { display: grid; grid-template-columns: 34px 1fr; gap: 0 14px; align-items: start; }
+      .n {
+        width: 30px; height: 30px; border-radius: 50%;
+        background: var(--accent); color: #fffdf8;
+        display: grid; place-items: center;
+        font-size: 0.9rem; font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      ol.steps p { margin: 3px 0 0; color: var(--muted); font-size: 0.96rem; }
+      figure {
+        margin: 26px 0; background: var(--card);
+        border: 1px solid var(--line); border-radius: 12px;
+        padding: 12px; overflow: hidden;
+      }
+      figure img { display: block; width: 100%; height: auto; border-radius: 7px; }
+      figcaption { font-size: 0.87rem; color: var(--muted); margin-top: 11px; padding: 0 4px; }
+      dl.facts { margin: 22px 0; border-top: 1px solid var(--line); }
+      dl.facts > div {
+        display: grid; grid-template-columns: minmax(0, 11rem) 1fr; gap: 4px 18px;
+        padding: 14px 0; border-bottom: 1px solid var(--line);
+      }
+      dl.facts dt { font-weight: 600; font-size: 0.95rem; }
+      dl.facts dd { margin: 0; color: var(--muted); font-size: 0.95rem; min-width: 0; }
+      .tag {
+        display: inline-block; font-size: 0.68rem; font-weight: 700;
+        letter-spacing: 0.07em; text-transform: uppercase;
+        padding: 1px 6px; border-radius: 4px; margin-left: 5px;
+        background: var(--warm-bg); border: 1px solid var(--warm-line); color: var(--warm);
+        vertical-align: 1.5px;
+      }
+      .cta {
+        background: var(--card); border: 1px solid var(--line);
+        border-radius: 12px; padding: 20px 22px; margin: 26px 0;
+      }
+      .cta h3 { font-size: 1.1rem; margin-bottom: 6px; }
+      .cta .url {
+        display: block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 1rem; font-weight: 600; padding: 11px 14px; margin: 14px 0 4px;
+        background: #eef1f3; border: 1px solid #d6dde2; border-radius: 8px;
+        word-break: break-all; text-decoration: none;
+      }
+      details { margin: 18px 0; }
+      summary { cursor: pointer; color: var(--muted); font-size: 0.95rem; }
+      summary:hover { color: var(--text); }
+      footer {
+        margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line);
+        font-size: 0.87rem; color: var(--muted);
+      }
+      footer p { max-width: none; }
+      @media (max-width: 460px) {
+        ol.steps > li { grid-template-columns: 28px 1fr; gap: 0 11px; }
+        .n { width: 26px; height: 26px; font-size: 0.82rem; }
+        dl.facts > div { grid-template-columns: 1fr; gap: 2px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <a class="back" href="./">&larr; Dylan Wilson</a>
+      <header>
+        <h1>Export your Character.AI data</h1>
+        <p class="intro">
+          Character.AI filed for Chapter 11 on 12 October 2026. The platform is still running, and
+          it has a built-in export — five clicks, no extra software. Here is exactly where to
+          click, on the current interface.
+        </p>
+      </header>
+
+      <div class="callout">
+        <p>
+          <strong>Why the hurry.</strong> The court-supervised sale is expected to close in late
+          November or early December 2026, and the company has said the platform could be wound
+          down if no buyer keeps it running. No shutdown date has been set.
+        </p>
+        <p>
+          The company says your data stays protected under its Privacy Policy. That policy also
+          permits disclosure of data in a sale of company assets, and the company has not said
+          whether chat logs are among the assets for sale. Export while the export button still
+          works.
+        </p>
+      </div>
+
+      <h2>Before you start</h2>
+      <dl class="facts">
+        <div>
+          <dt>It is not instant</dt>
+          <dd>
+            An account-wide request, not a per-chat download. You ask, then wait — reports put it
+            anywhere from about an hour to several days.<span class="tag">unverified</span>
+          </dd>
+        </div>
+        <div>
+          <dt>The link expires</dt>
+          <dd>
+            Download it as soon as it arrives. The link is reported to expire within a day or
+            two.<span class="tag">unverified</span> Do not request it and then go away for the
+            weekend.
+          </dd>
+        </div>
+        <div>
+          <dt>Check it is complete</dt>
+          <dd>
+            A zip of JSON covering your account, characters and messages.<span class="tag">unverified</span>
+            One report says very long chats can come back missing their oldest messages, so open
+            the file and check your longest conversation is all there.
+          </dd>
+        </div>
+      </dl>
+      <p style="font-size: 0.93rem; color: var(--muted)">
+        The steps below were taken from the live site. Anything tagged
+        <span class="tag">unverified</span> comes from third-party guides rather than the company,
+        so treat it as a rough expectation.
+      </p>
+
+      <h2>On the web</h2>
+      <ol class="steps">
+        <li>
+          <span class="n">1</span>
+          <div>
+            <h3>Click your username</h3>
+            <p>At the very bottom of the left sidebar, once you are signed in.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">2</span>
+          <div>
+            <h3>Choose Settings</h3>
+            <p>From the small menu that pops up, above Policies and Logout.</p>
+          </div>
+        </li>
+      </ol>
+
+      <figure>
+        <img
+          src="img/g1-menu.png"
+          alt="Character.AI home page. A marker labelled 1 highlights the username button at the bottom of the left sidebar; a marker labelled 2 highlights Settings in the menu that opens above it."
+        />
+        <figcaption>Steps 1 and 2. The account name and chat list have been covered over.</figcaption>
+      </figure>
+
+      <ol class="steps">
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>Choose Account</h3>
+            <p>Second from the top of the settings sidebar, under Public profile.</p>
+          </div>
+        </li>
+        <li>
+          <span class="n">4</span>
+          <div>
+            <h3>Click Manage Account &amp; Data</h3>
+            <p>
+              At the bottom left of the panel, on its own, well below the plan and offer-code
+              boxes. Easy to miss.
+            </p>
+          </div>
+        </li>
+        <li>
+          <span class="n">5</span>
+          <div>
+            <h3>Select Export data</h3>
+            <p>
+              A small menu opens <em>above</em> the button. <strong>Delete account</strong> sits
+              directly beneath Export data and wipes everything, so aim carefully. Choosing Export
+              data lodges the request; they email you when the zip is ready.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <figure>
+        <img
+          src="img/g2-account.png"
+          alt="Character.AI account settings. Markers highlight Account in the sidebar, Manage Account and Data at the bottom, and Export data in the menu above it, with a warning marker on Delete account below."
+        />
+        <figcaption>
+          Steps 3, 4 and 5, with the menu open. Note how close <strong>Delete account</strong> sits
+          to <strong>Export data</strong>.
+        </figcaption>
+      </figure>
+
+      <h2>In the phone app</h2>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>Open your profile</h3></div></li>
+        <li><span class="n">2</span><div><h3>Tap the settings icon</h3></div></li>
+        <li>
+          <span class="n">3</span>
+          <div>
+            <h3>Tap Export my data</h3>
+            <p>
+              Near the bottom of Preferences. <strong>Remove Account</strong> sits two rows below
+              it, in red, and deletes everything.
+            </p>
+          </div>
+        </li>
+      </ol>
+
+      <figure>
+        <img
+          src="img/f3-mobile.png"
+          alt="Mobile Preferences screen. A marker labelled 3 highlights Export my data; a grey marker warns against the Remove Account item below it."
+        />
+        <figcaption>Step 3 in the app. Character.AI's own screenshot, from their help centre.</figcaption>
+      </figure>
+
+      <h2>When the file arrives</h2>
+      <p>
+        Open the zip and check it before you count on it. Find your longest conversation and scroll
+        to the beginning — that is where truncation would show up. Then keep a copy somewhere that
+        is not a downloads folder you will clear out.
+      </p>
+
+      <h2>Donating it to an open-source model</h2>
+      <p>
+        Entirely optional. Your export is yours, and keeping it is a perfectly good reason to have
+        made one. But if you want it to outlive the company in a different way, it can become
+        training data for a companion model anyone can download and run.
+      </p>
+
+      <div class="cta">
+        <h3>Upload your export</h3>
+        <a class="url" href="https://cai-export.vercel.app">cai-export.vercel.app</a>
+        <p style="margin-bottom: 0; color: var(--muted); font-size: 0.95rem">
+          The site says whether it is currently accepting uploads. If it says it is not open, that
+          is working as intended rather than broken.
+        </p>
+      </div>
+
+      <p>
+        <strong>Your conversations are not published.</strong> There is no plan to release the
+        collected text as a public dataset, post it anywhere, sell it, or pass it to anyone outside
+        the project. It is training material, kept private. What <em>is</em> released publicly is
+        the model — the finished weights, for anyone to download.
+      </p>
+      <p>
+        Those two facts do not cancel out, and this is the part worth reading twice. A model can
+        memorise pieces of what it was trained on and repeat them to someone else later;
+        distinctive text is the most likely to come back out. Keeping the dataset private makes
+        that far less likely than publishing it would, but not impossible.
+        <strong>A Character.AI export is uploaded exactly as it came — nothing in it is
+        redacted.</strong> Open the zip and read it first if you are unsure what is in there.
+      </p>
+      <p>
+        The upload itself is encrypted in your browser, so the server stores something it cannot
+        read. Your browser generates a deletion code and sends only a one-way hash of it, so you
+        can delete the donation later by pasting that code — no email address, no account, nothing
+        that identifies you. Deleting stops your conversations being used in future training runs;
+        it cannot reach inside a model already trained on them and released, so do it sooner rather
+        than later if you change your mind.
+      </p>
+      <p>
+        You never need to install anything, and you should never have to hand over your
+        Character.AI password or let a tool sign in as you. Anyone who asks for either is not worth
+        trusting with this.
+      </p>
+
+      <footer>
+        <p>
+          Desktop screenshots are from a real Character.AI account, with the account name and chat
+          list covered over. The phone screenshot is Character.AI's own, from their help-centre
+          article
+          <a
+            href="https://support.character.ai/hc/en-us/articles/30299431702555-How-do-I-export-all-my-data-How-can-I-export-my-chats"
+            >How do I export all my data?</a
+          >. Numbered markers added. Last checked 13 October 2026; if a label does not match your
+          screen, check the help centre.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
