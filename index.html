@@ -125,6 +125,20 @@
         font-size: 0.94rem;
       }
 
+      .draft-tag {
+        display: inline-block;
+        margin-left: 6px;
+        padding: 1px 8px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--muted);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        vertical-align: 2px;
+      }
+
       .note {
         margin-top: 18px;
         color: var(--muted);
@@ -175,6 +189,21 @@
       <section aria-labelledby="projects-title">
         <h2 id="projects-title">Projects</h2>
         <div class="project-list">
+          <article class="project">
+            <div>
+              <h3>Selection Is Not Self-Improvement <span class="draft-tag">Early draft</span></h3>
+              <p>
+                Patch-based self-improvement loops (DGM-H/HyperAgents) improve by patching task
+                agents and eliciting a one-time harness from the base model; continued meta-level
+                self-editing adds nothing beyond what the frozen model proposes when asked once.
+              </p>
+            </div>
+            <div class="project-links">
+              <a href="papers/selection/selection_is_not_self_improvement.pdf">Paper</a>
+              <a href="papers/selection/selection_is_not_self_improvement.tex">LaTeX</a>
+            </div>
+          </article>
+
           <article class="project">
             <div>
               <h3>Wrong Votes, Right Gradients</h3>
